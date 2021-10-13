@@ -2,6 +2,12 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1 v-if="displayHello">hello</h1>
+    {{ message }}
+
+    <div v-for="item in items" :key="item.message">
+      {{ item.message }}
+    </div>
   </div>
 </template>
 
@@ -12,6 +18,17 @@ export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  data() {
+    return {
+      displayHello: false,
+      message: "hello this is a message",
+      items: [
+        {message: "Hugo"},
+        {message: "Sam"},
+        {message: "Ellie"}
+      ]
+    }
   }
 }
 </script>
